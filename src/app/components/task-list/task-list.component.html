@@ -1,1 +1,12 @@
-<p>task-list works!</p>
+<div class="list-container container border p-3">
+  <h2>{{taskList.listTitle}}</h2>
+
+  <div cdkDropList
+    id="taskList.listId"
+    [cdkDropListData]="taskList.listData"
+    [cdkDropListConnectedTo]="taskList.connectedListIds"
+    class="task-list"
+    (cdkDropListDropped)="drop($event)">
+    <div class="task-list-item" *ngFor="let task of taskList.listData" cdkDrag>{{task.title}}</div>
+  </div>
+</div>

@@ -3,21 +3,27 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MaterialModule } from './material.module';
+import { FirebaseModule } from './firebase.module';
 
 import { AppComponent } from './app.component';
 import { TaskListComponent } from './components/task-list/task-list.component';
+import { AllTasksComponent } from './components/all-tasks/all-tasks.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TaskListComponent
+    TaskListComponent,
+    AllTasksComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    DragDropModule
+    MaterialModule,
+    FirebaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
