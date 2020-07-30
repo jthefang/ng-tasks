@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { EditTaskComponent } from '../edit-task/edit-task.component';
 import { MatDialog } from '@angular/material/dialog';
-import { TaskDialogData } from 'src/app/models/TaskDialogData';
+import { TaskDialogData, TaskDialogAction } from 'src/app/models/TaskDialogData';
 import { Task } from 'src/app/models/Task';
 import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
-import { TaskService } from 'src/app/services/task.service';
 
 @Component({
   selector: 'app-add-task',
@@ -13,8 +11,7 @@ import { TaskService } from 'src/app/services/task.service';
 })
 export class AddTaskComponent implements OnInit {
 
-  constructor(public dialog: MatDialog,
-    private taskService: TaskService) { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -28,7 +25,8 @@ export class AddTaskComponent implements OnInit {
     const taskDialogData: TaskDialogData = {
       title: "Add task",
       task: newTask,
-      shouldAddTask: true,
+      actionOnSubmit: TaskDialogAction.ADD_TASK,
+      canDelete: false,
     }
     const dialogRef = this.dialog.open(TaskDialogComponent, {
       width: '500px',
@@ -36,7 +34,7 @@ export class AddTaskComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`The dialog was closed with result: ${result}`);
+      //(`The dialog was closed with result: ${result}`);
     });
   }
 

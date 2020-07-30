@@ -17,7 +17,10 @@
     <textarea matInput placeholder="Details..."></textarea>
   </mat-form-field>
 </div>
-<div mat-dialog-actions>
-  <button mat-raised-button (click)="onNoClick()">Cancel</button>
+<div mat-dialog-actions class="my-3 float-right">
+  <button *ngIf="data.canDelete" mat-mini-fab color="warn" aria-label="Delete button" (click)="deleteTask(data.task)">
+    <mat-icon>delete</mat-icon>
+  </button>
   <button mat-raised-button color="primary" [mat-dialog-close]="false" (click)="onSubmit(data.task)" cdkFocusInitial>Submit</button>
+  <button mat-raised-button (click)="onNoClick()">Cancel</button>
 </div>

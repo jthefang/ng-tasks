@@ -1,7 +1,13 @@
 import { Task } from './Task';
 
+export enum TaskDialogAction {
+  ADD_TASK,
+  UPDATE_TASK
+}
+
 export interface TaskDialogData {
   title:string;
   task:Task;
-  shouldAddTask: boolean;
+  actionOnSubmit: TaskDialogAction;
+  canDelete: boolean;
 }

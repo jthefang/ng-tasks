@@ -46,4 +46,9 @@ export class TaskService {
     taskDoc.update(task);
   }
 
+  deleteTask(task: Task) {
+    let taskDoc = this.afs.doc(`tasks/${task.id}`);
+    taskDoc.delete();
+  }
+
 }

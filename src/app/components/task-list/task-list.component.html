@@ -7,6 +7,11 @@
     [cdkDropListConnectedTo]="taskList.connectedListIds"
     class="task-list"
     (cdkDropListDropped)="drop($event)">
-    <app-task-item *ngFor="let task of taskList.listData" [task]="task"></app-task-item>
+    <div *ngIf="taskList.listData.length > 0; else showNoTasks" >
+      <app-task-item *ngFor="let task of taskList.listData" [task]="task"></app-task-item>
+    </div>
+    <ng-template #showNoTasks>
+      <div class="p-3 text-secondary"><i>No tasks</i></div>
+    </ng-template>
   </div>
 </div>
