@@ -56,11 +56,16 @@ export class TaskService {
   }
 
   getTasksForDate(date: Date): Observable<Task[]> {
-    let start = timestampFromDate(addDaysToDate(-1, date));
-    let end = timestampFromDate(date);
+    let midnightForDate = new Date(date)
+    midnightForDate.setHours(0,0,0,0);
+
+    console.log(midnightForDate);
+    console.log(`\t${addDaysToDate(1, midnightForDate)}`);
+    let start = timestampFromDate(midnightForDate);
+    let end = timestampFromDate(addDaysToDate(1, midnightForDate));
     
     let daysTaskCollection: AngularFirestoreCollection<Task> = this.afs.collection('tasks', ref => ref
-        .where('date', '>', start)
+        .where('date', '>=', start)
         .where('date', '<', end)
     );
     return this.retrieveTasksWithIds(daysTaskCollection);
