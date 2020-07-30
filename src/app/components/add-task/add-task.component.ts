@@ -23,6 +23,7 @@ export class AddTaskComponent implements OnInit {
     const newTask: Task = {
       title: "",
       description: "",
+      isComplete: false
     }
     const taskDialogData: TaskDialogData = {
       title: "Add task",

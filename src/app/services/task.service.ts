@@ -41,4 +41,9 @@ export class TaskService {
       });
   }
 
+  updateTask(task: Task) {
+    let taskDoc = this.afs.doc(`tasks/${task.id}`);
+    taskDoc.update(task);
+  }
+
 }

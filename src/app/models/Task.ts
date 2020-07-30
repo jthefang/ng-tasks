@@ -1,5 +1,6 @@
 export interface Task {
   id?:string;
-  title?:string;
+  title:string;
+  isComplete:boolean;
   description?:string;
 }

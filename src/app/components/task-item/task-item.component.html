@@ -1,0 +1,9 @@
+<div class="task-list-item" cdkDrag>
+  <mat-checkbox [checked]="task.isComplete"
+                (change)="onCheck($event.checked)">
+    {{task.title}}
+  </mat-checkbox>
+  <button mat-icon-button aria-label="Edit button">
+    <mat-icon>edit</mat-icon>
+  </button>
+</div>

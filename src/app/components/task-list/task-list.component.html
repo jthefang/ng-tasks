@@ -1,4 +1,4 @@
-<div class="list-container container border p-3">
+<div class="list-container border p-3">
   <h2>{{taskList.listTitle}}</h2>
 
   <div cdkDropList
@@ -7,6 +7,6 @@
     [cdkDropListConnectedTo]="taskList.connectedListIds"
     class="task-list"
     (cdkDropListDropped)="drop($event)">
-    <div class="task-list-item" *ngFor="let task of taskList.listData" cdkDrag>{{task.title}}</div>
+    <app-task-item *ngFor="let task of taskList.listData" [task]="task"></app-task-item>
   </div>
 </div>
