@@ -10,13 +10,19 @@ import { AppComponent } from './app.component';
 import { TaskListComponent } from './components/task-list/task-list.component';
 import { AllTasksComponent } from './components/all-tasks/all-tasks.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
+import { EditTaskComponent } from './components/edit-task/edit-task.component';
+import { AddTaskComponent } from './components/add-task/add-task.component';
+import { TaskDialogComponent } from './components/task-dialog/task-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TaskListComponent,
     AllTasksComponent,
-    CalendarComponent
+    CalendarComponent,
+    EditTaskComponent,
+    AddTaskComponent,
+    TaskDialogComponent
   ],
   imports: [
     BrowserModule,

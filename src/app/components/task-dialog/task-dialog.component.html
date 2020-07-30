@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+<div mat-dialog-content>
+  <mat-form-field class="w-100">
+    <mat-label>Title</mat-label>
+    <input matInput [(ngModel)]="data.task.title" 
+      id="titleInput" name="titleInput" required #titleInput="ngModel">
+  </mat-form-field>
+  <div *ngIf="titleInput.invalid && (titleInput.dirty || titleInput.touched)"
+    class="alert alert-danger">
+    <div *ngIf="titleInput.errors.required">
+      Please provide a title.
+    </div>
+  </div>
+
+  <mat-form-field class="w-100">
+    <mat-label>Details</mat-label>
+    <textarea matInput placeholder="Details..."></textarea>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="onNoClick()">Cancel</button>
+  <button mat-raised-button color="primary" [mat-dialog-close]="false" (click)="onSubmit(data.task)" cdkFocusInitial>Submit</button>
+</div>

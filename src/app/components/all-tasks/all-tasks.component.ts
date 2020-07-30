@@ -19,7 +19,7 @@ export class AllTasksComponent implements OnInit {
   ngOnInit(): void {
     this.taskService.getTasks().subscribe(tasks => {
       this.taskList.listData = tasks;
-    })
+    });
   }
 
 }
