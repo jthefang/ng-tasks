@@ -13,6 +13,8 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import { TaskDialogComponent } from './components/task-dialog/task-dialog.component';
 import { TaskItemComponent } from './components/task-item/task-item.component';
+import { WeeklyPlannerComponent } from './components/weekly-planner/weekly-planner.component';
+import { DailyTaskListComponent } from './components/daily-task-list/daily-task-list.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { TaskItemComponent } from './components/task-item/task-item.component';
     CalendarComponent,
     AddTaskComponent,
     TaskDialogComponent,
-    TaskItemComponent
+    TaskItemComponent,
+    WeeklyPlannerComponent,
+    DailyTaskListComponent
   ],
   imports: [
     BrowserModule,

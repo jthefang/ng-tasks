@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Task } from '../models/Task';
+import { convertFirestoreTimestampToDate } from '../util/dates';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,8 @@ export class TaskService {
   private retrieveTasksWithIds(tasksCollection: AngularFirestoreCollection<Task>): Observable<Task[]> {
     return tasksCollection.snapshotChanges().pipe(
       map(changes => changes.map(a => {
-        const data = a.payload.doc.data() as Task;
+        const data = a.payload.doc.data();
+        data.date = convertFirestoreTimestampToDate(data.date);
         data.id = a.payload.doc.id;
         return data;
       }))

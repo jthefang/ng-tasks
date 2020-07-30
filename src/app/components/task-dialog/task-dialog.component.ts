@@ -3,6 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { TaskDialogData, TaskDialogAction } from 'src/app/models/TaskDialogData';
 import { TaskService } from 'src/app/services/task.service';
 import { Task } from 'src/app/models/Task';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-task-dialog',
@@ -20,6 +21,10 @@ export class TaskDialogComponent implements OnInit {
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  onDateChange(event): void {
+    this.data.task.date = event.value;
   }
 
   onSubmit(newTask: Task) {
@@ -41,6 +46,10 @@ export class TaskDialogComponent implements OnInit {
   deleteTask(task: Task) {
     this.taskService.deleteTask(task);
     this.dialogRef.close();
+  }
+
+  getDateFormControl() {
+    return new FormControl(this.data.task.date);
   }
 
 }

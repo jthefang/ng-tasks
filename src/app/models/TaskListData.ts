@@ -1,6 +1,6 @@
 import { Task } from './Task';
 
-export interface TaskList {
+export interface TaskListData {
   listData: Task[];
   listTitle: string;
   listId: string;

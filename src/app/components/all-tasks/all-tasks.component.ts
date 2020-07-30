@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from 'src/app/services/task.service';
-import { TaskList } from 'src/app/models/TaskList';
+import { TaskListData } from 'src/app/models/TaskListData';
 
 @Component({
   selector: 'app-all-tasks',
@@ -8,7 +8,7 @@ import { TaskList } from 'src/app/models/TaskList';
   styleUrls: ['./all-tasks.component.css']
 })
 export class AllTasksComponent implements OnInit {
-  taskList: TaskList = {
+  taskList: TaskListData = {
     listData: [],
     listId: "list-all-tasks",
     listTitle: "All tasks"

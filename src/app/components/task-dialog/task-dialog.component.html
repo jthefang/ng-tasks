@@ -16,6 +16,14 @@
     <mat-label>Details</mat-label>
     <textarea matInput placeholder="Details..."></textarea>
   </mat-form-field>
+  
+  <mat-form-field appearance="fill">
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker" [formControl]="getDateFormControl()"
+      (dateChange)="onDateChange($event)">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
 </div>
 <div mat-dialog-actions class="my-3 float-right">
   <button *ngIf="data.canDelete" mat-mini-fab color="warn" aria-label="Delete button" (click)="deleteTask(data.task)">

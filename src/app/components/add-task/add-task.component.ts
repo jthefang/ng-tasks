@@ -20,6 +20,7 @@ export class AddTaskComponent implements OnInit {
     const newTask: Task = {
       title: "",
       description: "",
+      date: null,
       isComplete: false
     }
     const taskDialogData: TaskDialogData = {

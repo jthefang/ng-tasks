@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 import { TaskService } from 'src/app/services/task.service';
 import { Task } from 'src/app/models/Task';
-import { TaskList } from 'src/app/models/TaskList';
+import { TaskListData } from 'src/app/models/TaskListData';
 
 @Component({
   selector: 'app-task-list',
@@ -10,7 +10,7 @@ import { TaskList } from 'src/app/models/TaskList';
   styleUrls: ['./task-list.component.css']
 })
 export class TaskListComponent implements OnInit {
-  @Input() taskList: TaskList;
+  @Input() taskList: TaskListData;
 
   constructor() { }
 
