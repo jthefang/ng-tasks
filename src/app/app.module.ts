@@ -15,6 +15,7 @@ import { TaskDialogComponent } from './components/task-dialog/task-dialog.compon
 import { TaskItemComponent } from './components/task-item/task-item.component';
 import { WeeklyPlannerComponent } from './components/weekly-planner/weekly-planner.component';
 import { DailyTaskListComponent } from './components/daily-task-list/daily-task-list.component';
+import { ClearCompletedTasksComponent } from './components/clear-completed-tasks/clear-completed-tasks.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { DailyTaskListComponent } from './components/daily-task-list/daily-task-
     TaskDialogComponent,
     TaskItemComponent,
     WeeklyPlannerComponent,
-    DailyTaskListComponent
+    DailyTaskListComponent,
+    ClearCompletedTasksComponent
   ],
   imports: [
     BrowserModule,

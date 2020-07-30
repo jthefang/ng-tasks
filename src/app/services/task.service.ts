@@ -71,4 +71,17 @@ export class TaskService {
     return this.retrieveTasksWithIds(daysTaskCollection);
   }
 
+  async deleteAllCompletedTasks() {
+    const batch = this.afs.firestore.batch();
+    const qs = await this.afs.collection('tasks', ref => ref
+      .where('isComplete', '==', "true")).ref.get();
+    qs.forEach(doc => {
+      let task = doc.data() as Task;
+      if (task.isComplete) {
+        batch.delete(doc.ref);
+      }
+    });
+    return batch.commit();
+  }
+
 }
