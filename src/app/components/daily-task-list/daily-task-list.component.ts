@@ -25,6 +25,9 @@ export class DailyTaskListComponent implements OnInit {
     } else {
       this.taskListData.listTitle = dates.formatDate(this.dates[0], true);
     }
+    if (dates.datesAreOnSameDay(new Date(), this.dates[0])) {
+      this.taskListData.listTitle += " (Today)";
+    }
 
     this.taskService.getTasksForDate(this.dates[0]).subscribe(tasks => {
       this.taskListData.listData = tasks;

@@ -52,3 +52,9 @@ export function addDaysToDate(nDays: number, date: Date) {
   date.setDate(date.getDate() + nDays);
   return date;
 }
+
+export function datesAreOnSameDay(first, second) {
+  return first.getFullYear() === second.getFullYear() &&
+    first.getMonth() === second.getMonth() &&
+    first.getDate() === second.getDate();
+}

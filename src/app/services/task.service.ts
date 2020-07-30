@@ -21,7 +21,9 @@ export class TaskService {
     return tasksCollection.snapshotChanges().pipe(
       map(changes => changes.map(a => {
         const data = a.payload.doc.data();
-        data.date = convertFirestoreTimestampToDate(data.date);
+        if (data.date !== null) {
+          data.date = convertFirestoreTimestampToDate(data.date);
+        }
         data.id = a.payload.doc.id;
         return data;
       }))
@@ -54,8 +56,8 @@ export class TaskService {
   }
 
   getTasksForDate(date: Date): Observable<Task[]> {
-    let start = timestampFromDate(date);
-    let end = timestampFromDate(addDaysToDate(1, date));
+    let start = timestampFromDate(addDaysToDate(-1, date));
+    let end = timestampFromDate(date);
     
     let daysTaskCollection: AngularFirestoreCollection<Task> = this.afs.collection('tasks', ref => ref
         .where('date', '>', start)
