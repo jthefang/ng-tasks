@@ -42,3 +42,13 @@ export function convertFirestoreTimestampToDate(timestamp: unknown) {
   let fireTimestamp = timestamp as firebase.firestore.Timestamp;
   return new Date(fireTimestamp.seconds * 1000);
 }
+
+export function timestampFromDate(date: Date) {
+  return firebase.firestore.Timestamp.fromDate(date);
+}
+
+export function addDaysToDate(nDays: number, date: Date) {
+  var date = new Date(date);
+  date.setDate(date.getDate() + nDays);
+  return date;
+}

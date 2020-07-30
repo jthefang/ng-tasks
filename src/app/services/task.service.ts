@@ -3,7 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Task } from '../models/Task';
-import { convertFirestoreTimestampToDate } from '../util/dates';
+import { convertFirestoreTimestampToDate, timestampFromDate, addDaysToDate } from '../util/dates';
 
 @Injectable({
   providedIn: 'root'
@@ -51,6 +51,17 @@ export class TaskService {
   deleteTask(task: Task) {
     let taskDoc = this.afs.doc(`tasks/${task.id}`);
     taskDoc.delete();
+  }
+
+  getTasksForDate(date: Date): Observable<Task[]> {
+    let start = timestampFromDate(date);
+    let end = timestampFromDate(addDaysToDate(1, date));
+    
+    let daysTaskCollection: AngularFirestoreCollection<Task> = this.afs.collection('tasks', ref => ref
+        .where('date', '>', start)
+        .where('date', '<', end)
+    );
+    return this.retrieveTasksWithIds(daysTaskCollection);
   }
 
 }
