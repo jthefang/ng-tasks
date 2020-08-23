@@ -2,6 +2,7 @@
   <mat-checkbox [checked]="task.isComplete"
                 (change)="onCheck($event.checked)">
     {{task.title}}
+    <!--<br/><small class="muted">{{task.description}}</small>-->
   </mat-checkbox>
   <button mat-icon-button aria-label="Edit button" (click)="openTaskDialog()">
     <mat-icon>edit</mat-icon>
