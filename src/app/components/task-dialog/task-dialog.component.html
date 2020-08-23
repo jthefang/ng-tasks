@@ -2,7 +2,7 @@
 <div mat-dialog-content>
   <mat-form-field class="w-100">
     <mat-label>Title</mat-label>
-    <input matInput [(ngModel)]="data.task.title" 
+    <input matInput [(ngModel)]="data.task.title"
       id="titleInput" name="titleInput" required #titleInput="ngModel">
   </mat-form-field>
   <div *ngIf="titleInput.invalid && (titleInput.dirty || titleInput.touched)"
@@ -29,6 +29,6 @@
   <button *ngIf="data.canDelete" mat-mini-fab color="warn" aria-label="Delete button" (click)="deleteTask(data.task)">
     <mat-icon>delete</mat-icon>
   </button>
-  <button mat-raised-button color="primary" [mat-dialog-close]="false" (click)="onSubmit(data.task)" cdkFocusInitial>Submit</button>
+  <button mat-raised-button color="primary" [mat-dialog-close]="false" (click)="onSubmit(data.task)">Submit</button>
   <button mat-raised-button (click)="onNoClick()">Cancel</button>
 </div>
